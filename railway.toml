@@ -11,6 +11,7 @@ preDeployCommand = """
 composer dump-autoload &&
 php artisan optimize:clear &&
 php artisan migrate --force &&
+chmod +x run-worker.sh &&
 npm ci && npm run build
 """
 
