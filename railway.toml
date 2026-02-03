@@ -15,4 +15,4 @@ chmod +x run-worker.sh &&
 npm ci && npm run build
 """
 
-startCommand = "npx concurrently \"php artisan serve --host=0.0.0.0 --port ${PORT}\" \"php artisan queue:work --tries=2\""
+startCommand = "sh start.sh"
