@@ -22,6 +22,7 @@
                                     <th scope="col" class="px-6 py-3">
                                         Statut
                                     </th>
+                                    <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -43,6 +44,9 @@
                                                     Inactif
                                                 </span>
                                             @endif
+                                        </td>
+                                        <td>
+                                            <a href="{{ route('notify', ['receveir' => $user->id]) }}" class="whitespace-nowrap border border-b p-2 shadow-sm text-gray-900" type="button">Démarrer chat</a>
                                         </td>
                                     </tr>
                                 @endforeach
