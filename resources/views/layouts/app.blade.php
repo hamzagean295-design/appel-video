@@ -12,7 +12,7 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/pages/user-status.js', 'resources/js/pages/room.js'])
     </head>
     <body class="font-sans antialiased relative">
         <div id="notification-container" class="absolute right-2 top-16 border rounded bg-blue-400 p-1 animate-slide-down shadow-md hidden"> </div>
@@ -41,13 +41,14 @@
                 // console.log(privateChannel);
                 privateChannel.listen('.chat.notification', (e) => {
                     const message = e.message;
+                    const roomUrl = e.url;
                     notificationContainer.classList.remove('hidden');
                     notificationContainer.innerHTML = `
                         <div class="w-full flex justify-between items-center">
                             <p class="flex-1 font-normal italic">${message}</p>
                             <button type="button" id="close-button" class="w-8 text-center text-red-800 font-bold">X</button>
                         </div>
-                        <a href="#" class="bg-red-600 p-1 border z-10  rounded-sm">Rejoindre</a>
+                        <a href="${roomUrl}" id="rejoindre-btn" class="bg-red-600 p-1 border z-10  rounded-sm">Rejoindre</a>
                     `
                     const closeButton = document.getElementById('close-button');
                     closeButton.onclick = function() {

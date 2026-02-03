@@ -29,8 +29,10 @@ class ChatNotificationEvent implements ShouldBroadcast
     public function broadcastWith(): array
     {
         // Log::info($this->user->name);
+        Log::info($this->user->id);
         return [
-            'message' => $this->user->name . " wants to call you"
+            'message' => $this->user->name . " wants to call you",
+            'url' => route('room', ['receveir' => $this->user->id])
         ];
     }
 

@@ -14,12 +14,22 @@ class WebRTCSignalEvent implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public function __construct(public $data, public $userId) {}
+    public function __construct(public array $signal, public int $userId) {}
 
     public function broadcastOn(): array
     {
         return [
-            new PrivateChannel('video-call.' . $this->userId),
+            new PrivateChannel('App.Models.User.' . $this->userId),
         ];
+    }
+
+    public function broadcastAs(): string
+    {
+        return "webrtc.signal";
+    }
+
+    public function broadcastWith(): array
+    {
+        return $this->signal;
     }
 }

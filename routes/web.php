@@ -20,6 +20,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/users', [UserController::class, 'index'])->name('users.index');
     Route::get('/room/{receveir}/notify', [ChatController::class, 'notify'])->name('notify');
     Route::get('/room/{receveir}', [ChatController::class, 'room'])->name('room');
+    Route::post('/room/signal', [ChatController::class, 'signal'])->name('signal');
 });
 
 require __DIR__ . '/auth.php';
