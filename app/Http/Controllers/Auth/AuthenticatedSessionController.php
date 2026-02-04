@@ -31,7 +31,7 @@ class AuthenticatedSessionController extends Controller
         $user = auth()->user();
         $user->update(['is_active' => true]);
         // broadcast event
-        broadcast(new UserSatusUpdatedEvent($user, true))->toOthers();
+        broadcast(new UserSatusUpdatedEvent($user, true));
 
         return to_route('users.index');
     }
@@ -46,7 +46,7 @@ class AuthenticatedSessionController extends Controller
         $user->update(['is_active' => false]);
 
         // broadcast an event to update status
-        broadcast(new UserSatusUpdatedEvent($user, false))->toOthers();
+        broadcast(new UserSatusUpdatedEvent($user, false));
 
         Auth::guard('web')->logout();
 

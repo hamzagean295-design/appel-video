@@ -1,6 +1,6 @@
 function initializeUserStatusListener() {
     const channel = window.Echo.channel('test');
-    channel.listen('UserStatusUpdatedEvent', (e) => {
+    channel.listen('.UserStatusUpdatedEvent', (e) => {
         console.log("User status event received: ", e);
 
         const container = document.getElementById('status-user-' + e.user_id);
