@@ -3,5 +3,6 @@
 
 # This command runs the queue worker.
 # An alternative is to use the php artisan queue:listen command
+php artisan config:clear
 php artisan queue:clear
 php artisan queue:work
