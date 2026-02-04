@@ -2,6 +2,7 @@ import Echo from 'laravel-echo';
 
 import Pusher from 'pusher-js';
 window.Pusher = Pusher;
+window.Pusher.logToConsole = true; // À ajouter avant l'initialisation de Echo
 
 window.Echo = new Echo({
     broadcaster: "pusher",
