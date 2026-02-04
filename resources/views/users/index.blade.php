@@ -34,7 +34,7 @@
                                     <td class="px-6 py-4">
                                         {{ $user->email }}
                                     </td>
-                                        <td class="px-6 py-4" id="status-user">
+                                        <td class="px-6 py-4" id="status-user-{{ $user->id }}">
                                             @if ($user->is_active)
                                                 <span class="status-badge px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                                                     Actif

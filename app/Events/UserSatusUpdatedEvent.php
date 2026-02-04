@@ -2,6 +2,7 @@
 
 namespace App\Events;
 
+use App\Models\User;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -18,7 +19,7 @@ class UserSatusUpdatedEvent implements ShouldBroadcast
     /**
      * Create a new event instance.
      */
-    public function __construct(public bool $is_active) {}
+    public function __construct(public User $user, public bool $is_active) {}
 
     /**
      * Get the channels the event should broadcast on.
@@ -41,7 +42,8 @@ class UserSatusUpdatedEvent implements ShouldBroadcast
     public function broadcastWith(): array
     {
         return [
-            'status' => $this->is_active
+            'user_id' => $this->user->id,
+            'is_active' => $this->is_active
         ];
     }
 }

@@ -1,0 +1,15 @@
+AWS_ACCESS_KEY_ID=tid_jWHyLIGofsEUYUjNjelEkKPWRioYjCkhbWeVzXdtXKgVkfshoJ \
+AWS_SECRET_ACCESS_KEY=tsec_i5Fj7_TEeO7HG-BeCPbE9NhERadh+OHYgJTWr2qWrfdt0f4ytO8FgzGbmMtG055U6NdIOJ \
+aws s3api put-bucket-cors \
+  --bucket organized-tortellini-uyg96n \
+  --endpoint-url https://storage.railway.app \
+  --cors-configuration '{
+    "CORSRules": [
+      {
+        "AllowedHeaders": ["*"],
+        "AllowedMethods": ["GET", "PUT", "POST", "DELETE"],
+        "AllowedOrigins": ["*"],
+        "MaxAgeSeconds": 3600
+      }
+    ]
+  }'
