@@ -1,18 +1,5 @@
 [build]
 builder = "nixpacks"
 buildCommand = """
-composer install --optimize-autoloader --no-interaction && \
-npm ci && \
 npm run build
 """
-
-[deploy]
-preDeployCommand = """
-composer dump-autoload &&
-php artisan optimize:clear &&
-php artisan migrate --force &&
-chmod +x start.sh &&
-npm ci && npm run build
-"""
-
-startCommand = "sh start.sh"
